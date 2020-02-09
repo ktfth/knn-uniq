@@ -2,7 +2,7 @@
 const root = exports
 
 const assert = require('assert');
-const knn = require('knn');
+const knn = require('knn-core');
 
 const uniq = root.uniq = (a, b) => knn.neighbor(a, b) > 0;
 assert.ok(!uniq({a: 1, b: 2}, { a: 1, b: 2}));
