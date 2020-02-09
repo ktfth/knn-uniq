@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "knn-core": "^0.1.0"
+    "knn-core": "^0.1.1"
   }
 }
