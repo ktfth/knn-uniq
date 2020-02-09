@@ -30,6 +30,7 @@ assert.deepEqual(deepUniq([{a: 1}, {a: 1}, {b: 2, c: 3}, {d: 4, e: 5}]), [{a: 1}
 assert.deepEqual(deepUniq(deepUniq([{a: 1}, {b: 2, c: 3}, {b: 2, c: 3}]).reverse()).reverse(), [{a: 1}, {b: 2, c: 3}]);
 const neighborUniq = root.neighborUniq = (arr) => deepUniq(deepUniq(arr).reverse()).reverse();
 assert.deepEqual(neighborUniq([{a: 1}, {b: 2, c: 3}, {b: 2, c: 3}]), [{a: 1}, {b: 2, c: 3}]);
+assert.deepEqual(neighborUniq([{a: 1}, {b: 2, c: 3}, {b: 2, c: 3}, {d: 4}]), [{a: 1}, {b: 2, c: 3}, {d: 4}]);
 
 const extend = root.extend = (destination, source) => {
     for (var property in source)
