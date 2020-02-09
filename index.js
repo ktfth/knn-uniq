@@ -24,6 +24,7 @@ const deepUniq = root.deepUniq = (arr) => {
     return out;
 };
 assert.deepEqual(deepUniq([{a: 1, b: 2}, {a: 1, b: 2}, {c: 3, d: 4}]), [{a: 1, b: 2}, {c: 3, d: 4}]);
+assert.deepEqual(deepUniq([{a: 1}, {a: 1}, {b: 2, c: 3}, {d: 4, e: 5}]), [{a: 1}, {b: 2, c: 3}, {d: 4, e: 5}]);
 
 const extend = root.extend = (destination, source) => {
     for (var property in source)
