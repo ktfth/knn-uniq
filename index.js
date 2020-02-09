@@ -13,12 +13,8 @@ const deepUniq = root.deepUniq = (arr) => {
     arr.map(item => {
         if (out.length === 0) {
             out.push(item);
-        } else {
-            out.map(subItem => {
-                if (uniq(item, subItem)) {
-                    out.push(item);
-                }
-            });
+        } else if (out.filter(internal => uniq(item, internal)).length > 0) {
+            out.push(item);
         }
     });
     return out;
