@@ -22,7 +22,7 @@ assert.ok(has([{a: 1, b: 2}, {c: 3}], {a:1, b: 2}));
 const deepUniq = root.deepUniq = (arr) => {
     let out = [];
     arr.map(item => {
-        if (out.length === 0 || out.filter(internal => uniq(item, internal)).length > 0 || !has(out, item)) {
+        if (out.length === 0 || !has(out, item)) {
             out.push(item);
         }
     });
