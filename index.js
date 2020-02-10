@@ -29,7 +29,7 @@ assert.deepEqual(deepUniq(deepUniq([{a: 1}, {b: 2, c: 3}, {b: 2, c: 3}]).reverse
 const neighborUniq = root.neighborUniq = (arr) => {
     let out = [];
     let cache = deepUniq(deepUniq(arr).reverse()).reverse();
-    cache.map(item => {
+    cache.map((item, index) => {
         if (out.length === 0 || out.filter(internal => uniq(item, internal)).length > 0) {
             out.push(item);
         } else {
@@ -38,7 +38,7 @@ const neighborUniq = root.neighborUniq = (arr) => {
                     out.push(item);
                 }
             });
-        } 
+        }
     });
     return out;
 };
