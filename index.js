@@ -22,7 +22,7 @@ assert.ok(has([{a: 1, b: 2}, {c: 3}], {a:1, b: 2}));
 const deepUniq = root.deepUniq = (arr) => {
     let out = [];
     arr.map(item => {
-        if (out.length === 0 || !has(out, item)) {
+        if (item.constructor.toString().indexOf('Object') > -1 && (out.length === 0 || !has(out, item))) {
             out.push(item);
         }
     });
@@ -37,6 +37,7 @@ const neighborUniq = root.neighborUniq = (arr) => {
 };
 assert.deepEqual(neighborUniq([{a: 1}, {b: 2, c: 3}, {b: 2, c: 3}]), [{a: 1}, {b: 2, c: 3}]);
 assert.deepEqual(neighborUniq([{a: 1}, {b: 2, c: 3}, {b: 2, c: 3}, {d: 4}]), [{a: 1}, {b: 2, c: 3}, {d: 4}]);
+assert.deepEqual(neighborUniq([1, {a: 1}, {a: 1}, 2, {b: 2}]), [{a: 1}, {b: 2}]);
 
 const extend = root.extend = (destination, source) => {
     for (var property in source)
